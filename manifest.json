@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "Lol2021 Converter",
+    "version": "0.0.0.1",
+    "description": "Converts the codes on Lol2021 to the actual price (in yuan)",
+    "icons": {
+        "32": "icon32.png",
+        "64": "icon64.png",
+        "128": "icon128.png",
+        "256": "icon256.png",
+        "512": "icon512.png"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://lol2021.x.yupoo.com/*"],
+            "js": ["content.js"]
+        }
+    ]
+}
