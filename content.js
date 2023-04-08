@@ -83,3 +83,34 @@ for(let i = 0; i < check.length; i++) {
 }
 
 // Thank you for reading my code
+
+// New addition: Title changing
+function changeTitle(){
+    const title = document.title;
+
+    let temp = title.split("【")[1];
+
+    // Check if code is in the inner text. If it is, retrieve it
+    if(temp) temp = temp.split("】")[0];
+    else return;
+
+    // Check if code is at least 2 characters cause that shit is fucked up if it isn't
+    if(temp.length > 1){
+        // Save code (for readability)
+        const code = temp;
+
+        // Decode the code's price using the decoder further up
+        const decoded = decode(code);
+
+        // Check if it was able to decode
+        if(decoded !== undefined) {
+            // if it was able to decode, add that pretty little price tag
+            document.title = `${decoded.yuan}CNY ${title.split("】")[1]}`;
+        }else{
+            // If it's not able to decode, add a little X
+            document.title = "X - " + title.split("】")[1];
+        }
+    }
+}
+
+changeTitle();
